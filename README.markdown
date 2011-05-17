@@ -16,6 +16,8 @@ Overview
 --------
 
     data                   Actual test data (not in repo)
+    python                 Python implementations of some benchmarks
+    ruby                   Ruby implementations of some benchmarks
     src                    Source files of the haskell benchmarks
     text-benchmarks.cabal  Cabal file which compiles all benchmarks
     Makefile               Has targets for common tasks
