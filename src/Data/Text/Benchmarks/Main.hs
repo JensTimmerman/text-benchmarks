@@ -12,7 +12,7 @@ import Criterion.Main (defaultMain)
 
 import Data.Text.Benchmarks.Types
 import qualified Data.Text.Benchmarks.Programs.CaseMap as CaseMap
-
+import qualified Data.Text.Benchmarks.Programs.WordCount as WordCount
 
 main :: IO ()
 main = do
@@ -23,7 +23,8 @@ inputSpec :: IO InputSpec
 inputSpec = do
     allDataFiles' <- allDataFiles
     return
-        [ (CaseMap.benchmark, allDataFiles')
+        [ (CaseMap.benchmark, ["data/bmp.txt"])
+        , (WordCount.benchmark, ["data/bmp.txt"])
         ]
 
 allDataFiles :: IO [FilePath]
