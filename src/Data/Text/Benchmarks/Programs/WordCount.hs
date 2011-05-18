@@ -1,7 +1,7 @@
 -- | A word frequence count program
 --
 module Data.Text.Benchmarks.Programs.WordCount
-    ( benchmark
+    ( benchmarks
     ) where
      
 import Control.Exception (evaluate)
@@ -14,8 +14,8 @@ import Data.List (foldl')
 
 import Data.Text.Benchmarks.Types
 
-benchmark :: TextBenchmark
-benchmark = textBenchmark "Data.Text.Benchmarks.Programs.WordCount" $ \fp -> do
+benchmarks :: [TextBenchmark]
+benchmarks = return $ textBenchmark "WordCount" $ \fp -> do
     t <- T.decodeUtf8 `fmap` B.readFile fp
     evaluate $ wordCount t
 

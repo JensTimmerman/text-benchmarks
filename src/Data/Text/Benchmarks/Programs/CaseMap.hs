@@ -4,7 +4,7 @@
 -- results.
 --
 module Data.Text.Benchmarks.Programs.CaseMap
-    ( benchmark
+    ( benchmarks
     ) where
      
 import Control.Exception (evaluate)
@@ -14,8 +14,8 @@ import qualified Data.Text as T
 
 import Data.Text.Benchmarks.Types
 
-benchmark :: TextBenchmark
-benchmark = textBenchmark "Data.Text.Benchmarks.Programs.CaseMap" caseMap
+benchmarks :: [TextBenchmark]
+benchmarks = [textBenchmark "CaseMap" caseMap]
 
 caseMap :: FilePath -> IO T.Text
 caseMap file = do
