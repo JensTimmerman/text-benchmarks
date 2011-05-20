@@ -2,7 +2,7 @@
 
 import utils, sys
 
-def wordcount(string):
+def word_count(string):
     freqs = {}
     for w in string.split():
         w = w.lower()
@@ -13,5 +13,5 @@ def wordcount(string):
     return freqs
 
 for f in sys.argv[1:]:
-    t = utils.benchmark(lambda: utils.with_utf8_file(f, wordcount))
+    t = utils.benchmark(lambda: utils.with_utf8_file(f, word_count))
     print('{0}: {1}'.format(f, t))

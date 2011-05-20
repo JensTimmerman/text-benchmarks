@@ -2,7 +2,7 @@
 
 require './utils.rb'
 
-def wordcount(str)
+def word_count(str)
   freqs = Hash.new 0
   str.split.each do |w|
     freqs[w.downcase] += 1
@@ -11,6 +11,6 @@ def wordcount(str)
 end
 
 ARGV.each do |f|
-  t = benchmark { with_utf8_file(f) { |c| wordcount(c) } }
+  t = benchmark { with_utf8_file(f) { |c| word_count(c) } }
   puts "#{f}: #{t}"
 end
