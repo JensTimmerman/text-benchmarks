@@ -3,21 +3,17 @@
 import utils, sys
 
 def strip_brackets(string):
-    i = d = 0
+    d = 0
     out = ''
-    while i < len(string):
-        if string[i] == '{' or string[i] == '[':
-            d += 1
+    for c in string:
+        if c == '{' or c == '[': d += 1
 
         if d > 0:
             out += ' '
         else:
-            out += string[i]
+            out += c
 
-        if string[i] == '}' or string[i] == ']':
-            d -= 1
-
-        i += 1
+        if c == '}' or c == ']': d -= 1
 
     return out
 
