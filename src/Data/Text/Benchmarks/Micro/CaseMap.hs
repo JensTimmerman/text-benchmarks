@@ -3,7 +3,7 @@
 -- the criterion library to run a the benchmark on each file & get reliable
 -- results.
 --
-module Data.Text.Benchmarks.Programs.CaseMap
+module Data.Text.Benchmarks.Micro.CaseMap
     ( benchmarks
     ) where
      
@@ -12,7 +12,7 @@ import qualified Data.ByteString as B
 import qualified Data.Text.Encoding as T
 import qualified Data.Text as T
 
-import Data.Text.Benchmarks.Types
+import Data.Text.Benchmarks.Micro.Types
 
 benchmarks :: [TextBenchmark]
 benchmarks = [textBenchmark "CaseMap" caseMap]

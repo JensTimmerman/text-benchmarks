@@ -2,7 +2,7 @@
 --
 -- This program was originally contributed by Petr Prokhorenkov.
 --
-module Data.Text.Benchmarks.Programs.StripBrackets
+module Data.Text.Benchmarks.Micro.StripBrackets
     ( benchmarks
     ) where
      
@@ -11,7 +11,7 @@ import qualified Data.ByteString as B
 import qualified Data.Text.Encoding as T
 import qualified Data.Text as T
 
-import Data.Text.Benchmarks.Types
+import Data.Text.Benchmarks.Micro.Types
 
 benchmarks :: [TextBenchmark]
 benchmarks = return $ textBenchmark "StripBrackets" $ \fp -> do

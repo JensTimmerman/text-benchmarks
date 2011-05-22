@@ -1,6 +1,6 @@
 -- | Benchmarks simple file reading
 --
-module Data.Text.Benchmarks.Programs.FileRead
+module Data.Text.Benchmarks.Micro.FileRead
     ( benchmarks
     ) where
 
@@ -15,7 +15,7 @@ import qualified Data.Text.Lazy.Encoding as LT
 import qualified Data.ByteString as SB
 import qualified Data.ByteString.Lazy as LB
 
-import Data.Text.Benchmarks.Types
+import Data.Text.Benchmarks.Micro.Types
 
 benchmarks :: [TextBenchmark]
 benchmarks =

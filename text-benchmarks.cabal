@@ -14,9 +14,9 @@ Build-type:          Simple
 
 Cabal-version:       >=1.2
 
-Executable text-benchmarks
+Executable micro-benchmarks
   Hs-source-dirs: src ../text
-  Main-is:        Data/Text/Benchmarks/Main.hs
+  Main-is:        Data/Text/Benchmarks/Micro.hs
   Ghc-options:    -Wall -O2
   Cpp-options:    -DHAVE_DEEPSEQ
   Build-depends:  base       >= 4   && < 5,

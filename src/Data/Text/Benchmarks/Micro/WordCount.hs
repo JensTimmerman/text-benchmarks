@@ -1,6 +1,6 @@
 -- | A word frequence count program
 --
-module Data.Text.Benchmarks.Programs.WordCount
+module Data.Text.Benchmarks.Micro.WordCount
     ( benchmarks
     ) where
      
@@ -12,7 +12,7 @@ import Data.Map (Map)
 import qualified Data.Map as M
 import Data.List (foldl')
 
-import Data.Text.Benchmarks.Types
+import Data.Text.Benchmarks.Micro.Types
 
 benchmarks :: [TextBenchmark]
 benchmarks = return $ textBenchmark "WordCount" $ \fp -> do

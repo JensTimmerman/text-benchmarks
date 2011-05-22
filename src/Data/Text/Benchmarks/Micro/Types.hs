@@ -1,7 +1,7 @@
--- | Types used for the text benchmarks
+-- | Types used for the text microbenchmarks
 --
 {-# LANGUAGE ExistentialQuantification #-}
-module Data.Text.Benchmarks.Types
+module Data.Text.Benchmarks.Micro.Types
     ( TextBenchmark
     , textBenchmark
     , toBenchmark
