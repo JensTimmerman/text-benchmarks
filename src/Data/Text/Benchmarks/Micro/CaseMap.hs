@@ -4,20 +4,13 @@
 -- results.
 --
 module Data.Text.Benchmarks.Micro.CaseMap
-    ( benchmarks
+    ( benchmark
     ) where
      
-import Control.Exception (evaluate)
-import qualified Data.ByteString as B
-import qualified Data.Text.Encoding as T
 import qualified Data.Text as T
+import Criterion.Main (Benchmark, bench)
 
-import Data.Text.Benchmarks.Micro.Types
+import Data.Text.Benchmarks.Micro.Util
 
-benchmarks :: [TextBenchmark]
-benchmarks = [textBenchmark "CaseMap" caseMap]
-
-caseMap :: FilePath -> IO T.Text
-caseMap file = do
-    t <- T.decodeUtf8 `fmap` B.readFile file
-    evaluate $ T.toUpper t
+benchmark :: FilePath -> Benchmark
+benchmark = bench "CaseMap" . withUtf8File T.toUpper

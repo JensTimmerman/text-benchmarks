@@ -3,20 +3,16 @@
 -- This program was originally contributed by Petr Prokhorenkov.
 --
 module Data.Text.Benchmarks.Micro.StripBrackets
-    ( benchmarks
+    ( benchmark
     ) where
      
-import Control.Exception (evaluate)
-import qualified Data.ByteString as B
-import qualified Data.Text.Encoding as T
+import Criterion.Main (Benchmark, bench)
 import qualified Data.Text as T
 
-import Data.Text.Benchmarks.Micro.Types
+import Data.Text.Benchmarks.Micro.Util
 
-benchmarks :: [TextBenchmark]
-benchmarks = return $ textBenchmark "StripBrackets" $ \fp -> do
-    t <- T.decodeUtf8 `fmap` B.readFile fp
-    evaluate $ stripBrackets t
+benchmark :: FilePath -> Benchmark
+benchmark = bench "StripBrackets" . withUtf8File stripBrackets
 
 stripBrackets :: T.Text -> T.Text
 stripBrackets = snd . T.mapAccumL f (0 :: Int)

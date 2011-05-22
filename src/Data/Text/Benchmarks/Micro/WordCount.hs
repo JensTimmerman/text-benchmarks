@@ -1,23 +1,21 @@
 -- | A word frequence count program
 --
 module Data.Text.Benchmarks.Micro.WordCount
-    ( benchmarks
+    ( benchmark
     ) where
      
 import Control.Exception (evaluate)
-import qualified Data.ByteString as B
-import qualified Data.Text.Encoding as T
 import qualified Data.Text as T
 import Data.Map (Map)
 import qualified Data.Map as M
 import Data.List (foldl')
 
-import Data.Text.Benchmarks.Micro.Types
+import Criterion.Main (Benchmark, bench)
 
-benchmarks :: [TextBenchmark]
-benchmarks = return $ textBenchmark "WordCount" $ \fp -> do
-    t <- T.decodeUtf8 `fmap` B.readFile fp
-    evaluate $ wordCount t
+import Data.Text.Benchmarks.Micro.Util
+
+benchmark :: FilePath -> Benchmark
+benchmark = bench "WordCount" . withUtf8File (M.size . wordCount)
 
 wordCount :: T.Text -> Map T.Text Int
 wordCount =
