@@ -4,7 +4,6 @@ module Data.Text.Benchmarks.Micro.WordCount
     ( benchmark
     ) where
      
-import Control.Exception (evaluate)
 import qualified Data.Text as T
 import Data.Map (Map)
 import qualified Data.Map as M

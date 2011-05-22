@@ -6,6 +6,7 @@ module Main
 
 import Criterion.Main (Benchmark, defaultMain)
 
+import qualified Data.Text.Benchmarks.Micro.Builder as Builder
 import qualified Data.Text.Benchmarks.Micro.CaseMap as CaseMap
 import qualified Data.Text.Benchmarks.Micro.FileRead as FileRead
 import qualified Data.Text.Benchmarks.Micro.StripBrackets as StripBrackets
@@ -16,7 +17,8 @@ main = defaultMain benchmarks
 
 benchmarks :: [Benchmark]
 benchmarks =
-    [ CaseMap.benchmark "data/russian.txt"
+    [ Builder.benchmark
+    , CaseMap.benchmark "data/russian.txt"
     , FileRead.benchmark "data/russian.txt"
     , StripBrackets.benchmark "data/russian.txt"
     , WordCount.benchmark "data/russian.txt"
