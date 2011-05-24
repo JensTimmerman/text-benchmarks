@@ -3,9 +3,9 @@ require 'benchmark'
 def benchmark(&b)
   runs = 100
   
-  Benchmark.bmbm do |x|
-    x.report { runs.times { b.call } }
-  end
+  total = Benchmark.measure { runs.times { b.call } }
+  mean = total / runs
+  $stderr.puts "mean: #{mean}"
 end
 
 def with_utf8_file(filename)
