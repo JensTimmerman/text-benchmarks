@@ -1,14 +1,11 @@
 require 'benchmark'
 
-def benchmark
+def benchmark(&block)
   runs = 100
   total = 0
 
   runs.times do 
-    # Proc.new will be equal to the block given to the function
-    # I just use this because it's a neat hack 
-    # (also, it's 6 times faster than &block)
-    total += Benchmark.measure(Proc.new) 
+    total += Benchmark.measure(&block) 
   end
 
   total / runs 
