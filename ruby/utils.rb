@@ -1,19 +1,17 @@
-def benchmark_once
-  start = Time.now
-  yield
-  stop = Time.now
-  stop - start
-end
+require 'benchmark'
 
-def benchmark(&b)
+def benchmark
   runs = 100
-  total = 0.0
-  runs.times do |i|
-    result = benchmark_once(&b)
-    STDERR.puts "Run #{i}: #{result}"
-    total += result
+  total = 0
+
+  runs.times do 
+    # Proc.new will be equal to the block given to the function
+    # I just use this because it's a neat hack 
+    # (also, it's 6 times faster than &block)
+    total += Benchmark.measure(Proc.new) 
   end
-  total / runs
+
+  total / runs 
 end
 
 def with_utf8_file(filename)
