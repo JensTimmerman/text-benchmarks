@@ -23,8 +23,8 @@ benchmark p = bgroup "FileRead"
     , bench "LazyByteString" $ LB.readFile p >>= evaluate . LB.length
     , bench "Text" $ T.readFile p >>= evaluate . T.length
     , bench "LazyText" $ LT.readFile p >>= evaluate . LT.length
-    , bench "ByteStringText" $
+    , bench "TextByteString" $
         SB.readFile p >>= evaluate . T.length . T.decodeUtf8
-    , bench "ByteStringLazyText" $
+    , bench "LazyTextByteString" $
         LB.readFile p >>= evaluate . LT.length . LT.decodeUtf8
     ]
