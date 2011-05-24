@@ -19,4 +19,4 @@ def strip_brackets(string):
 
 for f in sys.argv[1:]:
     t = utils.benchmark(lambda: utils.with_utf8_file(f, strip_brackets))
-    print('{0}: {1}'.format(f, t))
+    sys.stderr.write('{0}: {1}\n'.format(f, t))

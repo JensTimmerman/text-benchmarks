@@ -10,7 +10,7 @@ def benchmark(&b)
   total = 0.0
   runs.times do |i|
     result = benchmark_once(&b)
-    puts "Run #{i}: #{result}"
+    STDERR.puts "Run #{i}: #{result}"
     total += result
   end
   total / runs

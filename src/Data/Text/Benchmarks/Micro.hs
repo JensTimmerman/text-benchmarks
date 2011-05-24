@@ -13,6 +13,7 @@ import qualified Data.Text.Benchmarks.Micro.CaseMap as CaseMap
 import qualified Data.Text.Benchmarks.Micro.Cut as Cut
 import qualified Data.Text.Benchmarks.Micro.DecodeUtf8 as DecodeUtf8
 import qualified Data.Text.Benchmarks.Micro.FileRead as FileRead
+import qualified Data.Text.Benchmarks.Micro.Sort as Sort
 import qualified Data.Text.Benchmarks.Micro.StripBrackets as StripBrackets
 import qualified Data.Text.Benchmarks.Micro.WordCount as WordCount
 
@@ -29,6 +30,7 @@ benchmarks = do
         , Cut.benchmark "data/russian.txt" sink 30 60
         , DecodeUtf8.benchmark "data/russian.txt"
         , FileRead.benchmark "data/russian.txt"
+        , Sort.benchmark "data/russian.txt" sink
         , StripBrackets.benchmark "data/russian.txt"
         , WordCount.benchmark "data/russian.txt"
         ]

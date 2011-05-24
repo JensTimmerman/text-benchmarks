@@ -13,7 +13,7 @@ def benchmark(f):
     total = 0.0
     for i in range(runs):
         result = benchmark_once(f)
-        print('Run {0}: {1}'.format(i, result))
+        sys.stderr.write('Run {0}: {1}\n'.format(i, result))
         total += result
     return total / runs
 

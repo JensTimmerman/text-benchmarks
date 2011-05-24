@@ -17,5 +17,5 @@ end
 
 ARGV.each do |f|
   t = benchmark { with_utf8_file(f) { |c| strip_brackets(c) } }
-  puts "#{f}: #{t}"
+  STDERR.puts "#{f}: #{t}"
 end
